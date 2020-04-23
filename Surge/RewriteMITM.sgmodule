@@ -38,7 +38,7 @@
 ^https?:\/\/(www.)?logoshejishi\.com https://www.sothink.com/product/logo-design-software/ 302
 ^https?:\/\/logoshejishi\.mairuan\.com\/ https://www.sothink.com/product/logo-design-software/ 302
 ^https?:\/\/(www.)?luping\.net\.cn\/ https://www.techsmith.com/ 302
-^https?:\/\/(www.)?mathtype\.cn\/ https://www.dessci.com/ 302
+^https?:\/\/(www.)?mathtype\.cn\/ https://www.dessci.com2/ 302
 ^https?:\/\/(www.)?mindmanager\.(cc|cn)\/ https://www.mindjet.com/cn/ 302
 ^https?:\/\/(www.)?mindmapper\.cc\/ https://www.mindmapper.com/ 302
 ^https?:\/\/(www.)?mycleanmymac\.com\/ https://macpaw.com/ 302
