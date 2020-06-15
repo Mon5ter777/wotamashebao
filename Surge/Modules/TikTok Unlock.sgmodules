@@ -1,0 +1,18 @@
+#!name=TikTok Unlock
+#!desc=Remove TikTok's regional restrictions.
+#!system=ios
+
+[Rule]
+DOMAIN-SUFFIX,tiktokv.com,DIRECT
+DOMAIN-SUFFIX,byteoversea.com,DIRECT
+DOMAIN-SUFFIX,musical.ly,DIRECT
+DOMAIN-SUFFIX,snssdk.com,DIRECT
+DOMAIN-SUFFIX,tiktokcdn.com,DIRECT
+
+[URL Rewrite]
+(?<=_region=)CN(?=&) JP 307
+(?<=&app_version=)16..(?=.?.?&) 1 307
+(?<=\?version_code=)16..(?=.?.?&) 1 307
+
+[MITM]
+hostname = %APPEND% *.tiktokv.com, *.byteoversea.com, *.musical.ly, *.snssdk.com
