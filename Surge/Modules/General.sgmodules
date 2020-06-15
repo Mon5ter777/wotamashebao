@@ -1,0 +1,68 @@
+#!name=General
+#!desc=Modules
+#system=ios
+
+[General]
+loglevel = notify
+ipv6 = true
+skip-proxy = 192.168.0.0/16, 193.168.0.0/24, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, 17.0.0.0/8, 127.0.0.1, localhost, *.local
+show-error-page-for-reject = true
+force-http-engine-hosts = 123.59.31.1,119.18.193.135,122.14.246.33,175.102.178.52
+dns-server = 1.1.1.1, 1.2.4.8, 8.8.8.8, 119.29.29.29, 180.76.76.76, 223.5.5.5
+allow-wifi-access = false
+network-framework = true
+proxy-test-url = http://www.gstatic.com/generate_204
+internet-test-url = http://www.gstatic.com/generate_204
+shared-jsvm-context = true
+tls-provider = openssl
+wifi-assist = true
+network-framework = true
+
+[Replica]
+hide-apple-request = 1
+hide-crashlytics-request = 1
+hide-udp = 0
+keyword-filter-type = none
+keyword-filter = (null)
+
+[Rule]
+# CUSTOM RULE
+DOMAIN-SUFFIX,tophub.today,DIRECT
+# > Proxy
+PROCESS-NAME,v2ray,DIRECT
+PROCESS-NAME,ss-local,DIRECT
+# > Download
+PROCESS-NAME,aria2c,DIRECT
+PROCESS-NAME,fdm,DIRECT
+PROCESS-NAME,Folx,DIRECT
+PROCESS-NAME,NetTransport,DIRECT
+PROCESS-NAME,Thunder,DIRECT
+PROCESS-NAME,Transmission,DIRECT
+PROCESS-NAME,uTorrent,DIRECT
+PROCESS-NAME,WebTorrent,DIRECT
+PROCESS-NAME,WebTorrent Helper,DIRECT
+
+[Host]
+*.tophub.today = server:119.29.29.29
+*.taobao.com = server:223.5.5.5
+*.tmall.com = server:223.5.5.5
+
+[URL Rewrite]
+# 谷歌
+^https?:\/\/(www.)?(g|google)\.cn https://www.google.com 302
+
+[Header Rewrite]
+# 百度知道
+^https?://zhidao\.baidu\.com header-replace User-Agent "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.2 Safari/605.1.15"
+
+[Script]
+# bilibili获取cookie
+// bilibili.cookie.js = script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.cookie.js,type=http-request,pattern=^https:\/\/(www|live)\.bilibili\.com\/?.?
+# bilibili签到
+bilibili.js = script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.js,type=cron,cronexp=10 0 0 * * *
+# bilibili去广告
+Bilibili.js = type=http-response,pattern=^https?:\/\/ap(i|p).(live.)?bilibili.com\/x(live)?\/(resource\/show\/tab|v2\/(reply\/main|view\/material|account\/(mine|teenagers\/status)|view|feed\/index|show\/popular\/index|rank)|app-room/v1/index/getInfoByRoom)\?access_key,requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/primovist/ScriptsForSurge/master/Scripts/Bilibili.js,script-update-interval=0
+# 贴吧获取cookie
+// tieba.cookie.js = script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/tieba/tieba.cookie.js,script-update-interval=0,type=http-request,pattern=^https?:\/\/tieba\.baidu\.com\/?.?
+# 贴吧签到
+tieba.js = script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/tieba/tieba.js, type=cron,cronexp=0 0 1 * * *,wake-system=1
