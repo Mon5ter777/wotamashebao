@@ -13,12 +13,9 @@ allow-wifi-access = false
 network-framework = true
 proxy-test-url = http://cp.cloudflare.com/
 internet-test-url = http://cp.cloudflare.com/
-tun-excluded-routes = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12
-tun-included-routes = 192.168.1.12/32
-shared-jsvm-context = true
 tls-provider = network-framework
 wifi-assist = true
-network-framework = true
+geoip-maxmind-url = https://raw.githubusercontent.com/alecthw/mmdb_china_ip_list/release/Country.mmdb
 
 [Replica]
 hide-apple-request = 1
